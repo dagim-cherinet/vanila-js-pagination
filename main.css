@@ -1,0 +1,176 @@
+*,
+::after,
+::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* GLOBAL variables */
+:root {
+  /* dark shades of primary color*/
+  --clr-primary-1: hsl(205, 86%, 17%);
+  --clr-primary-2: hsl(205, 77%, 27%);
+  --clr-primary-3: hsl(205, 72%, 37%);
+  --clr-primary-4: hsl(205, 63%, 48%);
+  /* primary/main color */
+  --clr-primary-5: hsl(205, 78%, 60%);
+  /* lighter shades of primary color */
+  --clr-primary-6: hsl(205, 89%, 70%);
+  --clr-primary-7: hsl(205, 90%, 76%);
+  --clr-primary-8: hsl(205, 86%, 81%);
+  --clr-primary-9: hsl(205, 90%, 88%);
+  --clr-primary-10: hsl(205, 100%, 96%);
+  /* darkest grey - used for headings */
+  --clr-grey-1: hsl(209, 61%, 16%);
+  --clr-grey-2: hsl(211, 39%, 23%);
+  --clr-grey-3: hsl(209, 34%, 30%);
+  --clr-grey-4: hsl(209, 28%, 39%);
+  /* grey used for paragraphs */
+  --clr-grey-5: hsl(210, 22%, 49%);
+  --clr-grey-6: hsl(209, 23%, 60%);
+  --clr-grey-7: hsl(211, 27%, 70%);
+  --clr-grey-8: hsl(210, 31%, 80%);
+  --clr-grey-9: hsl(212, 33%, 89%);
+  --clr-grey-10: hsl(210, 36%, 96%);
+  --clr-white: #fff;
+  --clr-red-dark: hsl(360, 67%, 44%);
+  --clr-red-light: hsl(360, 71%, 66%);
+  --clr-green-dark: hsl(125, 67%, 44%);
+  --clr-green-light: hsl(125, 71%, 66%);
+  --clr-black: #222;
+  --transition: all 0.3s linear;
+  --spacing: 0.1rem;
+  --radius: 0.25rem;
+  --light-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  --dark-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  --max-width: 1170px;
+  --fixed-width: 620px;
+}
+body {
+  /* background: #303032; */
+  background: var(--clr-grey-10);
+}
+
+main {
+  margin-top: 5rem;
+  display: grid;
+  grid-template-columns: 1fr repeat(12, minmax(auto, 50px)) 1fr;
+  gap: 40px;
+  padding: 50px 0;
+}
+.text--medium {
+  font-size: 16px;
+  line-height: 20px;
+  font-weight: 400;
+}
+.houses {
+  grid-column: 2 / span 12;
+  display: grid;
+  grid-template-columns: repeat(12, minmax(auto, 60px));
+  gap: 25px;
+}
+.house {
+  grid-column-end: span 4;
+  display: flex;
+  flex-direction: column;
+  /* background-color: #393936; */
+  background-color: var(--clr-grey-9);
+  cursor: pointer;
+  transition: all 0.3s ease 0s;
+}
+.house:hover {
+  transform: translateY(-4px);
+}
+.house_image_container {
+  width: 100%;
+  padding-top: 56%;
+  overflow: hidden;
+  position: relative;
+}
+.house_image_container img {
+  width: 100%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.card_content {
+  padding: 20px;
+}
+.card_title {
+  margin-bottom: 20px;
+}
+.card_info {
+  display: flex;
+  align-self: end;
+  align-items: center;
+}
+.rent_fee {
+  margin-left: auto;
+  padding: 5px 20px;
+  /* background-color: #303032; */
+  background-color: var(--clr-primary-5);
+  border-radius: 20px;
+}
+@media screen and (max-width: 1000px) {
+  .house {
+    grid-column-end: span 6;
+  }
+}
+@media screen and (max-width: 700px) {
+  main {
+    gap: 20px;
+  }
+  .house {
+    grid-column-end: span 12;
+  }
+}
+@media screen and (max-width: 500px) {
+  main {
+    grid-template-columns: 10px repeat(6, 1fr) 10px;
+    gap: 10px;
+  }
+  .houses {
+    grid-column: 2 / span 6;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 20px;
+  }
+  .house {
+    grid-column-end: span 6;
+  }
+}
+
+@media screen and (min-width: 992px) {
+  nav {
+    height: 56px;
+  }
+}
+.page_number {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.page_number button {
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  background-color: #92b6ec;
+  margin: 6px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  transition: 0.3s;
+  outline: none;
+  appearance: none;
+  border: none;
+}
+.page_number button:hover {
+  background-color: #0d6efd;
+  color: white;
+}
+
+.page_number button.active {
+  background-color: #0d6efd;
+  color: white;
+}
